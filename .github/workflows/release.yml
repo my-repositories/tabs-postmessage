@@ -26,7 +26,7 @@ jobs:
 
       - name: Create ZIP archive
         run: |
-          zip -r tabs-postmessage-${{ github.ref_name }}.zip dist/
+          zip -r tabs-postmessage-${{ github.ref_name }}.zip build/
         shell: bash
 
       - name: Create GitHub Release

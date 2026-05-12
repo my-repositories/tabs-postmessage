@@ -1,0 +1,19 @@
+{
+  "name": "tabs-postmessage",
+  "private:": true,
+  "version": "0.0.1",
+  "description": "Simple Chrome extension with Bun + TypeScript",
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "css": "echo postcss"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/chrome": "^0.1.42"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+  }
+}

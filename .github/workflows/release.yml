@@ -1,0 +1,43 @@
+name: Create Release with ZIP Archive
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Запускать при создании тега версии (например, v0.0.1)
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build extension
+        run: bun run scripts/build.ts
+
+      - name: Create ZIP archive
+        run: |
+          zip -r tabs-postmessage-${{ github.ref_name }}.zip dist/
+        shell: bash
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: tabs-postmessage-${{ github.ref_name }}.zip
+          name: Release ${{ github.ref_name }}
+          body: |
+            ## Changelog
+
+            - Initial release of tabs-postmessage Chrome extension
+            - Built with Bun + TypeScript
+          draft: false
+          prerelease: false

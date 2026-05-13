@@ -15,7 +15,7 @@ const bootstrap = () => {
         prevTask = payload;
         chrome.runtime.sendMessage({
           action: 'request',
-          payload: 'БЕЗ ВОДЫ! КРАТКО! Дай правильный ответ на вопрос. Если в вопросе есть варианты ответа, то только правильный вариант назови. Вопрос:\r\n' + encodeURIComponent(payload),
+          payload: 'Формат ответа: "%Номер варианта% - %текст варианта%".\r\n Дай правильный ответ на вопрос:\r\n' + encodeURIComponent(payload),
         });
         setTimeout(sendRequest, 5000);
       }

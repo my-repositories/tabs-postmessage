@@ -1,4 +1,6 @@
 let prevTask = '';
+let retriesCounter = 0;
+let retriesMax = 5;
 
 const bootstrap = () => {
   function sendRequest() {
@@ -9,8 +11,13 @@ const bootstrap = () => {
         .join('\r\n');
 
       console.log({ prevTask, payload });
+      if (retriesCounter >= retriesMax) {
+        retriesCounter = 0;
+        prevTask = '';
+      }
       if (prevTask === payload) {
         setTimeout(sendRequest, 1000);
+        ++retriesCounter;
       } else {
         prevTask = payload;
         chrome.runtime.sendMessage({

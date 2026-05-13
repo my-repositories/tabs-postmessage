@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./main.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings Dashboard</title>
+    <link rel="stylesheet" href="./main.css" />
 </head>
-
 <body>
-  <div id="root"></div>
-  <label>enabled: <input id="enabled" type="checkbox"></label> <br />
-  <label>domen: <input id="domen" type="text"></label> <br />
-  <label>kekSelector: <input id="kekSelector" type="text"></label> <br />
-  <label>poiskovik: <input id="poiskovik" type="text"></label> <br />
-  <button id="save">Save</button>
-  <script type="module" src="index.js"></script>
+    <div id="root"></div>
+    
+    <div class="settings-card">
+        <h2 class="settings-title">Configuration</h2>
+        
+        <div class="form-group toggle-group">
+            <span class="label-text">Enable Options</span>
+            <label class="switch">
+                <input id="enabled" type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="domen" class="label-text">Domain</label>
+            <input id="domen" type="text" placeholder="example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="kekSelector" class="label-text">Kek Selector</label>
+            <input id="kekSelector" type="text" placeholder=".class-name or #id">
+        </div>
+
+        <div class="form-group">
+            <label for="poiskovik" class="label-text">Search Engine</label>
+            <input id="poiskovik" type="text" placeholder="google.com">
+        </div>
+
+        <button id="save" class="btn-save">Save Settings</button>
+    </div>
+
+    <script type="module" src="index.js"></script>
 </body>
-
 </html>
-
